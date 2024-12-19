@@ -65,7 +65,9 @@ HAVING AVG(revenuelastmonth) > 0.5*MAX(revenuelastmonth);
 SELECT channeltype, (SUM(AvgViewsPerVideo)) AS total_views
 FROM youtube
 GROUP BY channeltype
-HAVING SUM(AvgViewsPerVideo) > 0.1*(SUM(AvgViewsPerVideo));
+HAVING SUM(AvgViewsPerVideo) > 0.1*(
+SELECT (SUM(AvgViewsPerVideo))
+FROM youtube);
 
 
 
